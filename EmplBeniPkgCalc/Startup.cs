@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using EmployeeBenefitPackageCalc.Data;
+using Microsoft.EntityFrameworkCore;
+using EmployeeBenefitPackageCalc.src.Models;
 
 namespace EmplBeniPkgCalc
 {
@@ -26,10 +29,15 @@ namespace EmplBeniPkgCalc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //string connectionString = Configuration.GetConnectionString("myDb");
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=ebp_calc;Integrated Security=True"));
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=ebp_calc;Integrated Security=True"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
         {
             if (env.IsDevelopment())
             {
@@ -46,6 +54,8 @@ namespace EmplBeniPkgCalc
             {
                 endpoints.MapControllers();
             });
+
+            context.Database.Migrate();
         }
     }
 }
