@@ -4,18 +4,32 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using EmployeeBenefitPackageCalc.Services;
+using EmployeeBenefitPackageCalc.src.Models;
+using EmployeeBenefitPackageCalc.Data;
 
 namespace EmployeeBenefitPackageCalc.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/employee")]
     [ApiController]
-    public class EmployeeController : ControllerBase
+    public class EmployeeController : Controller
     {
+        private AppDbContext _context;
+
+        public EmployeeController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         // GET: api/Employee
         [HttpGet]
-        public IEnumerable<string> Get()
+        public JsonResult Get()
         {
-            return new string[] { "value1", "value2" };
+            // var result = _employeeService.GetAllEmployees();
+            var getAllEmployees = _context.Employee.ToList();
+            // return getAllEmployees;
+            return new JsonResult(getAllEmployees);
         }
 
         // GET: api/Employee/5
