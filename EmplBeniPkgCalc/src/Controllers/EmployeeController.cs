@@ -11,26 +11,25 @@ using EmployeeBenefitPackageCalc.Data;
 
 namespace EmployeeBenefitPackageCalc.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/employee")]
     [ApiController]
     public class EmployeeController : Controller
     {
-        private ApplicationDbContext _context;
-        private EmployeeService employeeService;
+        private AppDbContext _context;
 
-        public EmployeeController(ApplicationDbContext context, EmployeeService emplService)
+        public EmployeeController(AppDbContext context)
         {
             _context = context;
-            employeeService = emplService;
         }
-
 
         // GET: api/Employee
         [HttpGet]
         public JsonResult Get()
         {
-            var result = employeeService.GetAllEmployees();
-            return new JsonResult(result);
+            // var result = _employeeService.GetAllEmployees();
+            var getAllEmployees = _context.Employee.ToList();
+            // return getAllEmployees;
+            return new JsonResult(getAllEmployees);
         }
 
         // GET: api/Employee/5

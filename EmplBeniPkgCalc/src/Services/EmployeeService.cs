@@ -10,14 +10,14 @@ namespace EmployeeBenefitPackageCalc.Services
 {
     public class EmployeeService
     {
-        private ApplicationDbContext _context;
-        public EmployeeService(ApplicationDbContext dbContext)
+        private AppDbContext _context;
+        public EmployeeService(AppDbContext dbContext)
         {
             _context = dbContext;
         }
         public List<Employee> GetAllEmployees()
         {
-            var getAllEmployees = _context.Employees.ToList();
+            var getAllEmployees = _context.Employee.ToList();
             return getAllEmployees;
         }
     }
