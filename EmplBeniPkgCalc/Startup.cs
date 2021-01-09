@@ -59,6 +59,7 @@ namespace EmplBeniPkgCalc
 
             context.Database.EnsureCreated();
 
+
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors(AllowLocalHostOrigins);
@@ -68,7 +69,7 @@ namespace EmplBeniPkgCalc
                 endpoints.MapControllers();
             });
 
-            context.Database.Migrate();
+            //context.Database.Migrate();
         }
     }
 }
