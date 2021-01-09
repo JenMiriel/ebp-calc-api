@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using EmployeeBenefitPackageCalc.src.Models;
-
+using EmployeeBenefitPackageCalc.Data.Configuration;
 
 namespace EmployeeBenefitPackageCalc.Data
 {
@@ -29,25 +29,9 @@ namespace EmployeeBenefitPackageCalc.Data
     protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Employee>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-                entity.Property(e => e.FirstName);
-                entity.Property(e => e.LastName);
-                entity.Property(e => e.BirthDate);
-                entity.Property(e => e.PayRate);
-                entity.Property(e => e.Insured);
-            });
 
-            modelBuilder.Entity<Settings>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-                entity.Property(e => e.InsuranceName);
-                entity.Property(e => e.EmployeeCost);
-                entity.Property(e => e.DependantCost);
-                entity.Property(e => e.DiscountString);
-                entity.Property(e => e.DiscountPercentage);
-            });
+            modelBuilder.ApplyConfiguration(new SettingsConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
 
         }
     }
