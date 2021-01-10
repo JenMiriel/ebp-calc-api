@@ -56,5 +56,24 @@ namespace EmployeeBenefitPackageCalc.Controllers
         public void Delete(int id)
         {
         }
+
+        // GET: api/Employee
+        [HttpGet("-dependants")]
+        public JsonResult GetAll()
+        {
+            //var getEveryone = (from e in _context.Employee
+            //                   join d in _context.Dependant where e.Id equals d.EmployeeId).ToList();
+
+
+                var query = objEntities.Employee.Join(objEntities.Department, r => r.EmpId, p => p.EmpId, (r, p) => new { r.FirstName, r.LastName, p.DepartmentName });
+
+            GridView1.DataSource = query;
+
+            GridView1.DataBind();
+
+            var getEveryone = _context.Employee.Join(_context.Dependant, e => e.Id, d => d.EmployeeId, (e, d) => new { })
+
+            return new JsonResult(getEveryone);
+        }
     }
 }
