@@ -7,23 +7,23 @@ namespace EmployeeBenefitPackageCalc.src.Models
 {
     public class EmployeeDTO
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public int PayRate { get; set; }
-        public bool Insured { get; set; }
+        public int id { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public DateTime birthDate { get; set; }
+        public int payRate { get; set; }
+        public bool insured { get; set; }
 
         public List<DependentDTO> Dependents { get; set; }
 
         public EmployeeDTO(int id, string fname, string lname, DateTime bdate, int pay, bool insured, List<DependentDTO> depndts)
         {
-            Id = id;
-            FirstName = fname;
-            LastName = lname;
-            BirthDate = bdate;
-            PayRate = pay;
-            Insured = insured;
+            this.id = id;
+            firstName = fname;
+            lastName = lname;
+            birthDate = bdate;
+            payRate = pay;
+            this.insured = insured;
             Dependents = depndts;
         }
 
@@ -34,12 +34,12 @@ namespace EmployeeBenefitPackageCalc.src.Models
             {
                 dependentList.Add(new DependentDTO(dep));
             }
-            Id = empl.Id;
-            FirstName = empl.FirstName;
-            LastName = empl.LastName;
-            BirthDate = empl.BirthDate;
-            PayRate = empl.PayRate;
-            Insured = empl.Insured;
+            id = empl.Id;
+            firstName = empl.FirstName;
+            lastName = empl.LastName;
+            birthDate = empl.BirthDate;
+            payRate = empl.PayRate;
+            insured = empl.Insured;
             Dependents = dependentList;
         }
     }
@@ -47,32 +47,32 @@ namespace EmployeeBenefitPackageCalc.src.Models
 
     public class DependentDTO
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public bool IsSpouse { get; set; }
+        public int id { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public DateTime birthDate { get; set; }
+        public bool isSpouse { get; set; }
 
-        public int EmployeeId { get; set; }
+        public int employeeId { get; set; }
 
         public DependentDTO(int id, string fname, string lname, DateTime bdate, bool spouse, int eId)
         {
-            Id = id;
-            FirstName = fname;
-            LastName = lname;
-            BirthDate = bdate;
-            IsSpouse = spouse;
-            EmployeeId = eId;
+            this.id = id;
+            firstName = fname;
+            lastName = lname;
+            birthDate = bdate;
+            isSpouse = spouse;
+            employeeId = eId;
         }
 
         public DependentDTO(Dependent dep)
         {
-            Id = dep.Id;
-            FirstName = dep.FirstName;
-            LastName = dep.LastName;
-            BirthDate = dep.BirthDate;
-            IsSpouse = dep.IsSpouse;
-            EmployeeId = dep.EmployeeId;
+            id = dep.Id;
+            firstName = dep.FirstName;
+            lastName = dep.LastName;
+            birthDate = dep.BirthDate;
+            isSpouse = dep.IsSpouse;
+            employeeId = dep.EmployeeId;
         }
     }
 }

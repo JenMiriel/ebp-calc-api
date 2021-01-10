@@ -53,7 +53,7 @@ namespace EmployeeBenefitPackageCalc.Services
                 employeesDependents = new List<DependentDTO>();
             }
 
-            //List<EmployeeDTO> getEveryone = _context.Employee.Select(x => new { x.FirstName, x.Id, x.BirthDate, x.Insured, x.LastName, x.PayRate, Dependents = x.Dependents.Select(x => new { x.BirthDate, x.LastName }).ToList() }).ToList();
+            //List<EmployeeDTO> getEveryone = _context.Employee.Select(x => new { x.firstName, x.id, x.birthDate, x.insured, x.lastName, x.payRate, Dependents = x.Dependents.Select(x => new { x.birthDate, x.lastName }).ToList() }).ToList();
 
             return getEveryone;
         }

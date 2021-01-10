@@ -16,12 +16,12 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
             builder.HasData(
                 new Settings
                 {
-                    Id = 1,
-                    InsuranceName = "Hyrule Health Network",
-                    EmployeeCost = 1000,
-                    DependantCost = 500,
-                    DiscountString = "A",
-                    DiscountPercentage = 10,
+                    id = 1,
+                    insuranceName = "Hyrule Health Network",
+                    employeeCost = 1000,
+                    dependantCost = 500,
+                    discountString = "A",
+                    discountPercentage = 10,
                 });
         }
     }

@@ -45,7 +45,7 @@ namespace EmployeeBenefitPackageCalc.Data
             //{
             //    entity.HasOne(d => d.Employee)
             //        .WithMany(p => p.Dependents)
-            //        .HasForeignKey("EmployeeId");
+            //        .HasForeignKey("employeeId");
             //});
 
             //modelBuilder.ApplyConfiguration(new SettingsConfiguration());

@@ -7,11 +7,11 @@ namespace EmployeeBenefitPackageCalc.src.Models
 {
     public class Settings
     {
-        public int Id { get; set; }
-        public string InsuranceName { get; set; }
-        public int EmployeeCost { get; set; }
-        public int DependantCost { get; set; }
-        public string DiscountString { get; set; }
-        public int DiscountPercentage { get; set; }
+        public int id { get; set; }
+        public string insuranceName { get; set; }
+        public int employeeCost { get; set; }
+        public int dependantCost { get; set; }
+        public string discountString { get; set; }
+        public int discountPercentage { get; set; }
     }
 }

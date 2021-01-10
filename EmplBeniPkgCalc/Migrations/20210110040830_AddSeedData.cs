@@ -9,7 +9,7 @@ namespace EmployeeBenefitPackageCalc.Migrations
         {
             migrationBuilder.InsertData(
                 table: "Employee",
-                columns: new[] { "Id", "BirthDate", "FirstName", "Insured", "LastName", "PayRate" },
+                columns: new[] { "id", "birthDate", "firstName", "insured", "lastName", "payRate" },
                 values: new object[,]
                 {
                     { 1, new DateTime(1964, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "Gomez", true, "Addams", 2000 },
@@ -22,12 +22,12 @@ namespace EmployeeBenefitPackageCalc.Migrations
 
             migrationBuilder.InsertData(
                 table: "Settings",
-                columns: new[] { "Id", "DependantCost", "DiscountPercentage", "DiscountString", "EmployeeCost", "InsuranceName" },
+                columns: new[] { "id", "DependantCost", "DiscountPercentage", "DiscountString", "EmployeeCost", "InsuranceName" },
                 values: new object[] { 1, 500, 10, "A", 1000, "Hyrule Health Network" });
 
             migrationBuilder.InsertData(
                 table: "Dependent",
-                columns: new[] { "Id", "IsSpouse", "EmployeeId", "FirstName",  "LastName", "BirthDate"},
+                columns: new[] { "id", "isSpouse", "employeeId", "firstName",  "lastName", "birthDate"},
                 values: new object[,]
                 {
                     { 1, true, 1, "Morticia", "Addams", new DateTime(1964, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified) },
@@ -50,37 +50,37 @@ namespace EmployeeBenefitPackageCalc.Migrations
         {
             migrationBuilder.DeleteData(
                table: "Employee",
-               keyColumn: "Id",
+               keyColumn: "id",
                keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Employee",
-                keyColumn: "Id",
+                keyColumn: "id",
                 keyValue: 2);
 
             migrationBuilder.DeleteData(
                 table: "Employee",
-                keyColumn: "Id",
+                keyColumn: "id",
                 keyValue: 3);
 
             migrationBuilder.DeleteData(
                 table: "Employee",
-                keyColumn: "Id",
+                keyColumn: "id",
                 keyValue: 4);
 
             migrationBuilder.DeleteData(
                 table: "Employee",
-                keyColumn: "Id",
+                keyColumn: "id",
                 keyValue: 5);
 
             migrationBuilder.DeleteData(
                 table: "Employee",
-                keyColumn: "Id",
+                keyColumn: "id",
                 keyValue: 6);
 
             migrationBuilder.DeleteData(
                 table: "Settings",
-                keyColumn: "Id",
+                keyColumn: "id",
                 keyValue: 1);
         }
     }

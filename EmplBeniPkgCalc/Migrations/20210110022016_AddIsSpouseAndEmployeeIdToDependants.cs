@@ -11,7 +11,7 @@ namespace EmployeeBenefitPackageCalc.Migrations
             //    table: "Dependent");
 
             //migrationBuilder.AlterColumn<int>(
-            //    name: "EmployeeId",
+            //    name: "employeeId",
             //    table: "Dependent",
             //    type: "int",
             //    nullable: false,
@@ -21,7 +21,7 @@ namespace EmployeeBenefitPackageCalc.Migrations
             //    oldNullable: true);
 
             //migrationBuilder.AddColumn<bool>(
-            //    name: "IsSpouse",
+            //    name: "isSpouse",
             //    table: "Dependent",
             //    type: "bit",
             //    nullable: false,
@@ -30,9 +30,9 @@ namespace EmployeeBenefitPackageCalc.Migrations
             //migrationBuilder.AddForeignKey(
             //    name: "FK_Dependant_Employee_EmployeeId",
             //    table: "Dependent",
-            //    column: "EmployeeId",
+            //    column: "employeeId",
             //    principalTable: "Employee",
-            //    principalColumn: "Id",
+            //    principalColumn: "id",
             //    onDelete: ReferentialAction.Cascade);
         }
 
@@ -43,11 +43,11 @@ namespace EmployeeBenefitPackageCalc.Migrations
                 table: "Dependent");
 
             migrationBuilder.DropColumn(
-                name: "IsSpouse",
+                name: "isSpouse",
                 table: "Dependent");
 
             migrationBuilder.AlterColumn<int>(
-                name: "EmployeeId",
+                name: "employeeId",
                 table: "Dependent",
                 type: "int",
                 nullable: true,
@@ -57,9 +57,9 @@ namespace EmployeeBenefitPackageCalc.Migrations
             migrationBuilder.AddForeignKey(
                 name: "FK_Dependant_Employee_EmployeeId",
                 table: "Dependent",
-                column: "EmployeeId",
+                column: "employeeId",
                 principalTable: "Employee",
-                principalColumn: "Id",
+                principalColumn: "id",
                 onDelete: ReferentialAction.Restrict);
         }
     }
