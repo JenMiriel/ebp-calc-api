@@ -59,7 +59,6 @@ namespace EmplBeniPkgCalc
 
             context.Database.EnsureCreated();
 
-
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors(AllowLocalHostOrigins);

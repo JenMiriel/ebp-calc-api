@@ -34,5 +34,8 @@ namespace EmployeeBenefitPackageCalc.Data
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
 
         }
+
+
+    public DbSet<EmployeeBenefitPackageCalc.src.Models.Settings> Settings { get; set; }
     }
 }
