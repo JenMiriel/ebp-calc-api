@@ -20,8 +20,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     FirstName = "Morticia",
                     LastName = "Addams",
                     BirthDate = new DateTime(1964, 12, 18),
-                    IsSpouse = true,
-                    EmployeeId = 1
+                    IsSpouse = true
                 },
                 new Dependent
                 {
@@ -29,8 +28,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     FirstName = "Wednesday",
                     LastName = "Addams",
                     BirthDate = new DateTime(2007, 5, 3),
-                    IsSpouse = false,
-                    EmployeeId = 1
+                    IsSpouse = false
                 },
                 new Dependent
                 {
@@ -38,8 +36,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     FirstName = "Pugsley",
                     LastName = "Addams",
                     BirthDate = new DateTime(2009, 7, 29),
-                    IsSpouse = false,
-                    EmployeeId = 1
+                    IsSpouse = false
                 },
                 new Dependent
                 {
@@ -47,8 +44,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     FirstName = "Grandmama",
                     LastName = "Addams",
                     BirthDate = new DateTime(1942, 1, 1),
-                    IsSpouse = false,
-                    EmployeeId = 1
+                    IsSpouse = false
                 },
                 new Dependent
                 {
@@ -56,64 +52,56 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     FirstName = "Helen",
                     LastName = "Parr",
                     BirthDate = new DateTime(1980, 2, 25),
-                    IsSpouse = true,
-                    EmployeeId = 1
+                    IsSpouse = true
                 },
                 new Dependent
                 {
                     FirstName = "Violet",
                     LastName = "Parr",
                     BirthDate = new DateTime(2005, 9, 9),
-                    IsSpouse = false,
-                    EmployeeId = 2
+                    IsSpouse = false
                 },
                 new Dependent
                 {
                     FirstName = "Dash",
                     LastName = "Parr",
                     BirthDate = new DateTime(2011, 4, 30),
-                    IsSpouse = false,
-                    EmployeeId = 2
+                    IsSpouse = false
                 },
                 new Dependent
                 {
                     FirstName = "Jack-Jack",
                     LastName = "Parr",
                     BirthDate = new DateTime(2019, 11, 4),
-                    IsSpouse = false,
-                    EmployeeId = 2
+                    IsSpouse = false
                 },
                 new Dependent
                 {
                     FirstName = "John",
                     LastName = "Connor",
                     BirthDate = new DateTime(2006, 5, 14),
-                    IsSpouse = false,
-                    EmployeeId = 5
+                    IsSpouse = false
                 },
                 new Dependent
                 {
                     FirstName = "Iduna",
                     LastName = "Runeardsson",
                     BirthDate = new DateTime(1977, 3, 31),
-                    IsSpouse = true,
-                    EmployeeId = 6
+                    IsSpouse = true
                 },
                 new Dependent
                 {
                     FirstName = "Elsa",
                     LastName = "Runeardsson",
                     BirthDate = new DateTime(2010, 12, 12),
-                    IsSpouse = false,
-                    EmployeeId = 6
+                    IsSpouse = false
                 },
                 new Dependent
                 {
                     FirstName = "Anna",
                     LastName = "Runeardsson",
                     BirthDate = new DateTime(2013, 6, 8),
-                    IsSpouse = false,
-                    EmployeeId = 6
+                    IsSpouse = false
                 }
                 );
         }

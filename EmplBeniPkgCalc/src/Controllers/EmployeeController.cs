@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EmployeeBenefitPackageCalc.Services;
 using EmployeeBenefitPackageCalc.src.Models;
 using EmployeeBenefitPackageCalc.Data;
+using System.Text.Json.Serialization;
 
 namespace EmployeeBenefitPackageCalc.Controllers
 {
@@ -16,20 +17,20 @@ namespace EmployeeBenefitPackageCalc.Controllers
     public class EmployeeController : Controller
     {
         private AppDbContext _context;
+        private EmployeeService _employeeService;
 
-        public EmployeeController(AppDbContext context)
+        public EmployeeController(AppDbContext context, EmployeeService employeeService)
         {
             _context = context;
+            _employeeService = employeeService;
         }
 
         // GET: api/Employee
         [HttpGet]
         public JsonResult Get()
         {
-            // var result = _employeeService.GetAllEmployees();
-            var getAllEmployees = _context.Employee.ToList();
-            // return getAllEmployees;
-            return new JsonResult(getAllEmployees);
+            var result = _employeeService.GetAllEmployees();
+            return new JsonResult(result);
         }
 
         // GET: api/Employee/5
@@ -62,22 +63,16 @@ namespace EmployeeBenefitPackageCalc.Controllers
         [HttpGet("dependents", Name = "GetAll")]
         public JsonResult GetAll()
         {
-            //var getEveryone = (from e in _context.Employee
-            //                   join d in _context.Dependent where e.Id equals d.EmployeeId).ToList();
+            // this gives me a JSon circular error, which nobody seems to agree how to fix as of late 2020
+            //var getEveryone = _context.Employee.Include(empl => empl.Dependents).ToList();
 
-
-            //    var query = objEntities.Employee.Join(objEntities.Department, r => r.EmpId, p => p.EmpId, (r, p) => new { r.FirstName, r.LastName, p.DepartmentName });
-
-            //GridView1.DataSource = query;
-
-            //GridView1.DataBind();
-
-            //var getEveryone = _context.Employee.Join(_context.Dependent, e => e.Id, d => d.EmployeeId, (e, d) => new { })
-
-            var getEveryone = _context.Employee
-                .Include(empl => empl.Dependents)
-                .ToList();
-
+            // so I'm doing this the brute force way, to get the mvp done, and will refactor when I find answers later
+            var getEveryone = _context.Employee.ToList();
+            foreach (Employee empl in getEveryone)
+            {
+                var getAttachedDependents = _context.Dependant.Where(d => d.EmployeeId == empl.Id).ToList();
+                empl.Dependents = getAttachedDependents;
+            }
             return new JsonResult(getEveryone);
         }
     }
