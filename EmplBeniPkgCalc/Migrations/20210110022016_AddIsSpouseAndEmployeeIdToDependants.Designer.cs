@@ -21,7 +21,7 @@ namespace EmployeeBenefitPackageCalc.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
-            modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Dependant", b =>
+            modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Dependent", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,7 +47,7 @@ namespace EmployeeBenefitPackageCalc.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Dependant");
+                    b.ToTable("Dependent");
                 });
 
             modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Employee", b =>
@@ -171,7 +171,7 @@ namespace EmployeeBenefitPackageCalc.Migrations
                         });
                 });
 
-            modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Dependant", b =>
+            modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Dependent", b =>
                 {
                     b.HasOne("EmployeeBenefitPackageCalc.src.Models.Employee", null)
                         .WithMany("Dependants")

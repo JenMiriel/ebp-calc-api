@@ -26,7 +26,7 @@ namespace EmployeeBenefitPackageCalc.Migrations
                 values: new object[] { 1, 500, 10, "A", 1000, "Hyrule Health Network" });
 
             migrationBuilder.InsertData(
-                table: "Dependant",
+                table: "Dependent",
                 columns: new[] { "Id", "IsSpouse", "EmployeeId", "FirstName",  "LastName", "BirthDate"},
                 values: new object[,]
                 {

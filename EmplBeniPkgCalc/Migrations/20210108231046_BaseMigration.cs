@@ -42,7 +42,7 @@ namespace EmployeeBenefitPackageCalc.Migrations
             //    });
 
             //migrationBuilder.CreateTable(
-            //    name: "Dependant",
+            //    name: "Dependent",
             //    columns: table => new
             //    {
             //        Id = table.Column<int>(type: "int", nullable: false)
@@ -65,14 +65,14 @@ namespace EmployeeBenefitPackageCalc.Migrations
 
             //migrationBuilder.CreateIndex(
             //    name: "IX_Dependant_EmployeeId",
-            //    table: "Dependant",
+            //    table: "Dependent",
             //    column: "EmployeeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Dependant");
+                name: "Dependent");
 
             migrationBuilder.DropTable(
                 name: "Settings");

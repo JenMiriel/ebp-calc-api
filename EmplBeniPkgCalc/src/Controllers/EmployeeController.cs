@@ -34,9 +34,10 @@ namespace EmployeeBenefitPackageCalc.Controllers
 
         // GET: api/Employee/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public Employee Get(int id)
         {
-            return "value";
+            var employee = _context.Employee.Single(e => e.Id == id);
+            return employee;
         }
 
         // POST: api/Employee
@@ -57,21 +58,25 @@ namespace EmployeeBenefitPackageCalc.Controllers
         {
         }
 
-        // GET: api/Employee
-        [HttpGet("-dependants")]
+        // GET: api/employee/dependents
+        [HttpGet("dependents", Name = "GetAll")]
         public JsonResult GetAll()
         {
             //var getEveryone = (from e in _context.Employee
-            //                   join d in _context.Dependant where e.Id equals d.EmployeeId).ToList();
+            //                   join d in _context.Dependent where e.Id equals d.EmployeeId).ToList();
 
 
-                var query = objEntities.Employee.Join(objEntities.Department, r => r.EmpId, p => p.EmpId, (r, p) => new { r.FirstName, r.LastName, p.DepartmentName });
+            //    var query = objEntities.Employee.Join(objEntities.Department, r => r.EmpId, p => p.EmpId, (r, p) => new { r.FirstName, r.LastName, p.DepartmentName });
 
-            GridView1.DataSource = query;
+            //GridView1.DataSource = query;
 
-            GridView1.DataBind();
+            //GridView1.DataBind();
 
-            var getEveryone = _context.Employee.Join(_context.Dependant, e => e.Id, d => d.EmployeeId, (e, d) => new { })
+            //var getEveryone = _context.Employee.Join(_context.Dependent, e => e.Id, d => d.EmployeeId, (e, d) => new { })
+
+            var getEveryone = _context.Employee
+                .Include(empl => empl.Dependents)
+                .ToList();
 
             return new JsonResult(getEveryone);
         }

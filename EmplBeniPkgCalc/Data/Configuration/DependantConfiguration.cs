@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EmployeeBenefitPackageCalc.Data.Configuration
 {
-    public class DependantConfiguration : IEntityTypeConfiguration<Dependant>
+    public class DependantConfiguration : IEntityTypeConfiguration<Dependent>
     {
-        public void Configure(EntityTypeBuilder<Dependant> builder)
+        public void Configure(EntityTypeBuilder<Dependent> builder)
         {
-            builder.ToTable("Dependant");
+            builder.ToTable("Dependent");
             builder.HasData(
-                new Dependant
+                new Dependent
                 {
                     Id = 1,
                     FirstName = "Morticia",
@@ -23,7 +23,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = true,
                     EmployeeId = 1
                 },
-                new Dependant
+                new Dependent
                 {
                     Id = 2,
                     FirstName = "Wednesday",
@@ -32,7 +32,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = false,
                     EmployeeId = 1
                 },
-                new Dependant
+                new Dependent
                 {
                     Id = 3,
                     FirstName = "Pugsley",
@@ -41,7 +41,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = false,
                     EmployeeId = 1
                 },
-                new Dependant
+                new Dependent
                 {
                     Id = 4,
                     FirstName = "Grandmama",
@@ -50,7 +50,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = false,
                     EmployeeId = 1
                 },
-                new Dependant
+                new Dependent
                 {
                     Id = 5,
                     FirstName = "Helen",
@@ -59,7 +59,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = true,
                     EmployeeId = 1
                 },
-                new Dependant
+                new Dependent
                 {
                     FirstName = "Violet",
                     LastName = "Parr",
@@ -67,7 +67,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = false,
                     EmployeeId = 2
                 },
-                new Dependant
+                new Dependent
                 {
                     FirstName = "Dash",
                     LastName = "Parr",
@@ -75,7 +75,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = false,
                     EmployeeId = 2
                 },
-                new Dependant
+                new Dependent
                 {
                     FirstName = "Jack-Jack",
                     LastName = "Parr",
@@ -83,7 +83,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = false,
                     EmployeeId = 2
                 },
-                new Dependant
+                new Dependent
                 {
                     FirstName = "John",
                     LastName = "Connor",
@@ -91,7 +91,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = false,
                     EmployeeId = 5
                 },
-                new Dependant
+                new Dependent
                 {
                     FirstName = "Iduna",
                     LastName = "Runeardsson",
@@ -99,7 +99,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = true,
                     EmployeeId = 6
                 },
-                new Dependant
+                new Dependent
                 {
                     FirstName = "Elsa",
                     LastName = "Runeardsson",
@@ -107,7 +107,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
                     IsSpouse = false,
                     EmployeeId = 6
                 },
-                new Dependant
+                new Dependent
                 {
                     FirstName = "Anna",
                     LastName = "Runeardsson",
