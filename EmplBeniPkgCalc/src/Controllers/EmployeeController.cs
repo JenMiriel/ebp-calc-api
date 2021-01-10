@@ -35,10 +35,10 @@ namespace EmployeeBenefitPackageCalc.Controllers
 
         // GET: api/Employee/5
         [HttpGet("{id}", Name = "Get")]
-        public Employee Get(int id)
+        public EmployeeDTO Get(int id)
         {
-            var employee = _context.Employee.Single(e => e.Id == id);
-            return employee;
+            var result = _employeeService.GetSingleEmployeeWithDependents(id);
+            return result;
         }
 
         // POST: api/Employee
@@ -63,16 +63,7 @@ namespace EmployeeBenefitPackageCalc.Controllers
         [HttpGet("dependents", Name = "GetAll")]
         public JsonResult GetAll()
         {
-            // this gives me a JSon circular error, which nobody seems to agree how to fix as of late 2020
-            //var getEveryone = _context.Employee.Include(empl => empl.Dependents).ToList();
-
-            // so I'm doing this the brute force way, to get the mvp done, and will refactor when I find answers later
-            var getEveryone = _context.Employee.ToList();
-            foreach (Employee empl in getEveryone)
-            {
-                var getAttachedDependents = _context.Dependant.Where(d => d.EmployeeId == empl.Id).ToList();
-                empl.Dependents = getAttachedDependents;
-            }
+            var getEveryone = _employeeService.GetAllEmployeesAndTheirDependents();
             return new JsonResult(getEveryone);
         }
     }

@@ -36,12 +36,17 @@ namespace EmployeeBenefitPackageCalc.Data
                 entity.Property(e => e.LastName).IsRequired();
             });
 
-            modelBuilder.Entity<Dependent>(entity =>
+            modelBuilder.Entity<Employee>(entity =>
             {
-                entity.HasOne(d => d.Employee)
-                    .WithMany(p => p.Dependents)
-                    .HasForeignKey("EmployeeId");
+                entity.HasMany(p => p.Dependents);
             });
+
+            //modelBuilder.Entity<Dependent>(entity =>
+            //{
+            //    entity.HasOne(d => d.Employee)
+            //        .WithMany(p => p.Dependents)
+            //        .HasForeignKey("EmployeeId");
+            //});
 
             //modelBuilder.ApplyConfiguration(new SettingsConfiguration());
             //modelBuilder.ApplyConfiguration(new EmployeeConfiguration());

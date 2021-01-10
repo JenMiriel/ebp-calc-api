@@ -10,6 +10,6 @@ namespace EmployeeBenefitPackageCalc.src.Models
         public int PayRate { get; set; }
         public bool Insured { get; set; }
 
-        public ICollection<Dependent> Dependents { get; set; }
+        public List<Dependent> Dependents { get; set; }
     }
 }

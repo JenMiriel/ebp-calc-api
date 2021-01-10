@@ -10,8 +10,6 @@ namespace EmployeeBenefitPackageCalc.src.Models
         public bool IsSpouse { get; set; }
 
         public int EmployeeId { get; set; }
-        public Employee Employee { get; set; }
-
 
     }
 }
