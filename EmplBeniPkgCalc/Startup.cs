@@ -31,8 +31,8 @@ namespace EmplBeniPkgCalc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddJsonOptions(option => { option.JsonSerializerOptions.PropertyNamingPolicy = null; option.JsonSerializerOptions.MaxDepth = 256; });
-            //string connectionString = Configuration.GetConnectionString("myDb");
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=ebp_calc;Integrated Security=True"));
+
+            services.AddTransient<EmployeeService>();
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=ebp_calc;Integrated Security=True"));
