@@ -7,5 +7,7 @@ namespace EmployeeBenefitPackageCalc.src.Models
 {
     public class Dependant : Person
     {
+        public bool IsSpouse { get; set; }
+        public int EmployeeId { get; set; }
     }
 }

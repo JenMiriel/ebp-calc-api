@@ -4,14 +4,16 @@ using EmployeeBenefitPackageCalc.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmployeeBenefitPackageCalc.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210110024016_AddIsSpouseAndEmployeeIdToDependants")]
+    partial class AddIsSpouseAndEmployeeIdToDependants
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,6 +75,62 @@ namespace EmployeeBenefitPackageCalc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employee");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BirthDate = new DateTime(1964, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Gomez",
+                            Insured = true,
+                            LastName = "Addams",
+                            PayRate = 2000
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BirthDate = new DateTime(1979, 8, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Bob",
+                            Insured = true,
+                            LastName = "Parr",
+                            PayRate = 2000
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BirthDate = new DateTime(1980, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Helen",
+                            Insured = false,
+                            LastName = "Parr",
+                            PayRate = 2000
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BirthDate = new DateTime(1984, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "April",
+                            Insured = true,
+                            LastName = "O'Neil",
+                            PayRate = 2000
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BirthDate = new DateTime(1981, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Sarah",
+                            Insured = true,
+                            LastName = "Connor",
+                            PayRate = 2000
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BirthDate = new DateTime(1977, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Agnarr",
+                            Insured = true,
+                            LastName = "Runeardsson",
+                            PayRate = 2000
+                        });
                 });
 
             modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Settings", b =>
@@ -100,6 +158,17 @@ namespace EmployeeBenefitPackageCalc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Settings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DependantCost = 500,
+                            DiscountPercentage = 10,
+                            DiscountString = "A",
+                            EmployeeCost = 1000,
+                            InsuranceName = "Hyrule Health Network"
+                        });
                 });
 
             modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Dependant", b =>

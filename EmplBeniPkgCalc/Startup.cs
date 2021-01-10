@@ -58,7 +58,7 @@ namespace EmplBeniPkgCalc
             }
 
             context.Database.EnsureCreated();
-
+            context.Database.Migrate();
 
             app.UseHttpsRedirection();
             app.UseRouting();
@@ -69,7 +69,6 @@ namespace EmplBeniPkgCalc
                 endpoints.MapControllers();
             });
 
-            //context.Database.Migrate();
         }
     }
 }

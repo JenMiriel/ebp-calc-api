@@ -16,8 +16,8 @@ namespace EmployeeBenefitPackageCalc.Data
         }
 
         public DbSet<Employee> Employee { get; set; }
-
         public DbSet<Dependant> Dependant { get; set; }
+        public DbSet<Settings> Settings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,8 +30,9 @@ namespace EmployeeBenefitPackageCalc.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new SettingsConfiguration());
-            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+            //modelBuilder.ApplyConfiguration(new SettingsConfiguration());
+            //modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+            //modelBuilder.ApplyConfiguration(new DependantConfiguration());
 
         }
     }
