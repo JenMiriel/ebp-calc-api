@@ -11,6 +11,19 @@ namespace EmployeeBenefitPackageCalc.src.Models
 
         public int EmployeeId { get; set; }
 
+        public Dependent()
+        { }
+
+        public Dependent(int id, string fname, string lname, DateTime bdate, bool spouse, int eId)
+        {
+            Id = id;
+            FirstName = fname;
+            LastName = lname;
+            BirthDate = bdate;
+            IsSpouse = spouse;
+            EmployeeId = eId;
+        }
+
         public Dependent(DependentDTO dep)
         {
             Id = dep.id;

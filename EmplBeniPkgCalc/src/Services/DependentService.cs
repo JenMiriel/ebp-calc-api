@@ -6,7 +6,7 @@ using EmployeeBenefitPackageCalc.src.Models;
 using EmployeeBenefitPackageCalc.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace DependentBenefitPackageCalc.src.Services
+namespace EmployeeBenefitPackageCalc.Services
 {
     public class DependentService
     {

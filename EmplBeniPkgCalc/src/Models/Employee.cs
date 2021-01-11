@@ -13,6 +13,20 @@ namespace EmployeeBenefitPackageCalc.src.Models
 
         public List<Dependent> Dependents { get; set; }
 
+        public Employee()
+        { }
+
+        public Employee(int id, string fname, string lname, DateTime bdate, int pay, bool insured, List<Dependent> depndts)
+        {
+            Id = id;
+            FirstName = fname;
+            LastName = lname;
+            BirthDate = bdate;
+            PayRate = pay;
+            Insured = insured;
+            Dependents = depndts;
+        }
+
         public Employee(EmployeeDTO empl)
         {
             List<Dependent> dependentList = new List<Dependent>();
