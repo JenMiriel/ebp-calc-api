@@ -32,7 +32,7 @@ namespace EmployeeBenefitPackageCalc.Services
         public List<EmployeeDTO> GetAllEmployeesAndTheirDependents()
         {
             // this gives me a JSon circular error, which nobody seems to agree how to fix as of late 2020
-            //var getEveryone = _context.Employee.Include(empl => empl.Dependents).ToList();
+            //var getEveryone = _context.Employee.Include(empl => empl.dependents).ToList();
 
             // so I'm doing this the brute force way, to get the mvp done, and will refactor when I find answers later
             List<EmployeeDTO> getEveryone = new List<EmployeeDTO>();
@@ -53,7 +53,7 @@ namespace EmployeeBenefitPackageCalc.Services
                 employeesDependents = new List<DependentDTO>();
             }
 
-            //List<EmployeeDTO> getEveryone = _context.Employee.Select(x => new { x.firstName, x.id, x.birthDate, x.insured, x.lastName, x.payRate, Dependents = x.Dependents.Select(x => new { x.birthDate, x.lastName }).ToList() }).ToList();
+            //List<EmployeeDTO> getEveryone = _context.Employee.Select(x => new { x.firstName, x.id, x.birthDate, x.insured, x.lastName, x.payRate, dependents = x.dependents.Select(x => new { x.birthDate, x.lastName }).ToList() }).ToList();
 
             return getEveryone;
         }

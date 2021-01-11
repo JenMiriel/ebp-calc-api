@@ -14,7 +14,7 @@ namespace EmployeeBenefitPackageCalc.src.Models
         public int payRate { get; set; }
         public bool insured { get; set; }
 
-        public List<DependentDTO> Dependents { get; set; }
+        public List<DependentDTO> dependents { get; set; }
 
         public EmployeeDTO(int id, string fname, string lname, DateTime bdate, int pay, bool insured, List<DependentDTO> depndts)
         {
@@ -24,7 +24,7 @@ namespace EmployeeBenefitPackageCalc.src.Models
             birthDate = bdate;
             payRate = pay;
             this.insured = insured;
-            Dependents = depndts;
+            dependents = depndts;
         }
 
         public EmployeeDTO(Employee empl)
@@ -40,7 +40,7 @@ namespace EmployeeBenefitPackageCalc.src.Models
             birthDate = empl.BirthDate;
             payRate = empl.PayRate;
             insured = empl.Insured;
-            Dependents = dependentList;
+            dependents = dependentList;
         }
     }
 

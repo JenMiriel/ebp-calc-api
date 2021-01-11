@@ -44,7 +44,7 @@ namespace EmployeeBenefitPackageCalc.Data
             //modelBuilder.Entity<Dependent>(entity =>
             //{
             //    entity.HasOne(d => d.Employee)
-            //        .WithMany(p => p.Dependents)
+            //        .WithMany(p => p.dependents)
             //        .HasForeignKey("employeeId");
             //});
 
