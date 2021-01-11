@@ -11,5 +11,14 @@ namespace EmployeeBenefitPackageCalc.src.Models
 
         public int EmployeeId { get; set; }
 
+        public Dependent(DependentDTO dep)
+        {
+            Id = dep.id;
+            FirstName = dep.firstName;
+            LastName = dep.lastName;
+            BirthDate = dep.birthDate;
+            IsSpouse = dep.isSpouse;
+            EmployeeId = dep.employeeId;
+        }
     }
 }

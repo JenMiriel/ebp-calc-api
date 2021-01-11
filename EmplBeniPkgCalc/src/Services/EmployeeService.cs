@@ -57,5 +57,27 @@ namespace EmployeeBenefitPackageCalc.Services
 
             return getEveryone;
         }
+
+        public async Task UpdateEmployee(int updateId, EmployeeDTO employeeDTO)
+        {
+            Employee updateEmployee = new Employee(employeeDTO);
+
+            _context.Update(updateEmployee);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task AddNewEmployeeAsync(EmployeeDTO newEmployeeDTO)
+        {
+            Employee addNewEmployee = new Employee(newEmployeeDTO);
+
+           _context.Add(addNewEmployee);
+           await _context.SaveChangesAsync();
+        }
+
+        public void DeleteEmployee(int deleteId)
+        {
+            Employee employeeToDelete = _context.Employee.Where(a => a.Id == deleteId).Include(x => x.Dependents).FirstOrDefault();
+            _context.Remove(employeeToDelete);
+        }
     }
 }

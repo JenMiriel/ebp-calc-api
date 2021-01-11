@@ -34,6 +34,8 @@ namespace EmplBeniPkgCalc
 
             services.AddTransient<EmployeeService>();
 
+            services.AddTransient<DependentService>();
+
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=ebp_calc;Integrated Security=True"));
 

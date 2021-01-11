@@ -43,20 +43,23 @@ namespace EmployeeBenefitPackageCalc.Controllers
 
         // POST: api/Employee
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task PostAsync([FromBody] EmployeeDTO value)
         {
+            await _employeeService.AddNewEmployeeAsync(value);
         }
 
         // PUT: api/Employee/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task PutAsync(int id, [FromBody] EmployeeDTO value)
         {
+            await _employeeService.UpdateEmployee(value.id, value);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _employeeService.DeleteEmployee(id);
         }
 
         // GET: api/employee/dependents
