@@ -21,65 +21,65 @@ namespace EmployeeBenefitPackageCalc.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
-            modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Dependant", b =>
+            modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Dependent", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime>("birthDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EmployeeId")
+                    b.Property<int>("employeeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("firstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsSpouse")
+                    b.Property<bool>("isSpouse")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("lastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
-                    b.HasIndex("EmployeeId");
+                    b.HasIndex("employeeId");
 
-                    b.ToTable("Dependant");
+                    b.ToTable("Dependent");
                 });
 
             modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Employee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime>("birthDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("firstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Insured")
+                    b.Property<bool>("insured")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("lastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PayRate")
+                    b.Property<int>("payRate")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Employee");
                 });
 
             modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Settings", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -99,16 +99,16 @@ namespace EmployeeBenefitPackageCalc.Migrations
                     b.Property<string>("InsuranceName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Settings");
                 });
 
-            modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Dependant", b =>
+            modelBuilder.Entity("EmployeeBenefitPackageCalc.src.Models.Dependent", b =>
                 {
                     b.HasOne("EmployeeBenefitPackageCalc.src.Models.Employee", null)
                         .WithMany("Dependants")
-                        .HasForeignKey("EmployeeId")
+                        .HasForeignKey("employeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

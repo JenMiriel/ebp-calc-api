@@ -9,6 +9,7 @@ namespace EmployeeBenefitPackageCalc.src.Models
     {
         public int PayRate { get; set; }
         public bool Insured { get; set; }
-        public virtual ICollection<Dependant> Dependants { get; set; }
+
+        public List<Dependent> Dependents { get; set; }
     }
 }

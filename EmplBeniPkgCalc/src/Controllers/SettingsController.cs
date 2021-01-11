@@ -48,7 +48,7 @@ namespace EmployeeBenefitPackageCalc.src.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSettings(int id, Settings settings)
         {
-            if (id != settings.Id)
+            if (id != settings.id)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace EmployeeBenefitPackageCalc.src.Controllers
             _context.Settings.Add(settings);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSettings", new { id = settings.Id }, settings);
+            return CreatedAtAction("GetSettings", new { id = settings.id }, settings);
         }
 
         // DELETE: api/Settings/5
@@ -104,7 +104,7 @@ namespace EmployeeBenefitPackageCalc.src.Controllers
 
         private bool SettingsExists(int id)
         {
-            return _context.Settings.Any(e => e.Id == id);
+            return _context.Settings.Any(e => e.id == id);
         }
     }
 }

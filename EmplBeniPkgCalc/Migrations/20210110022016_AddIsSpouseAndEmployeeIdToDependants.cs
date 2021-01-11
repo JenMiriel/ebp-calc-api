@@ -8,11 +8,11 @@ namespace EmployeeBenefitPackageCalc.Migrations
         {
             //migrationBuilder.DropForeignKey(
             //    name: "FK_Dependant_Employee_EmployeeId",
-            //    table: "Dependant");
+            //    table: "Dependent");
 
             //migrationBuilder.AlterColumn<int>(
-            //    name: "EmployeeId",
-            //    table: "Dependant",
+            //    name: "employeeId",
+            //    table: "Dependent",
             //    type: "int",
             //    nullable: false,
             //    defaultValue: 0,
@@ -21,34 +21,34 @@ namespace EmployeeBenefitPackageCalc.Migrations
             //    oldNullable: true);
 
             //migrationBuilder.AddColumn<bool>(
-            //    name: "IsSpouse",
-            //    table: "Dependant",
+            //    name: "isSpouse",
+            //    table: "Dependent",
             //    type: "bit",
             //    nullable: false,
             //    defaultValue: false);
 
             //migrationBuilder.AddForeignKey(
             //    name: "FK_Dependant_Employee_EmployeeId",
-            //    table: "Dependant",
-            //    column: "EmployeeId",
+            //    table: "Dependent",
+            //    column: "employeeId",
             //    principalTable: "Employee",
-            //    principalColumn: "Id",
+            //    principalColumn: "id",
             //    onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Dependant_Employee_EmployeeId",
-                table: "Dependant");
+                name: "FK_Dependent_Employee_EmployeeId",
+                table: "Dependent");
 
             migrationBuilder.DropColumn(
-                name: "IsSpouse",
-                table: "Dependant");
+                name: "isSpouse",
+                table: "Dependent");
 
             migrationBuilder.AlterColumn<int>(
-                name: "EmployeeId",
-                table: "Dependant",
+                name: "employeeId",
+                table: "Dependent",
                 type: "int",
                 nullable: true,
                 oldClrType: typeof(int),
@@ -56,10 +56,10 @@ namespace EmployeeBenefitPackageCalc.Migrations
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Dependant_Employee_EmployeeId",
-                table: "Dependant",
-                column: "EmployeeId",
+                table: "Dependent",
+                column: "employeeId",
                 principalTable: "Employee",
-                principalColumn: "Id",
+                principalColumn: "id",
                 onDelete: ReferentialAction.Restrict);
         }
     }

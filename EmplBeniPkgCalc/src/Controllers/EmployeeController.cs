@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EmployeeBenefitPackageCalc.Services;
 using EmployeeBenefitPackageCalc.src.Models;
 using EmployeeBenefitPackageCalc.Data;
+using System.Text.Json.Serialization;
 
 namespace EmployeeBenefitPackageCalc.Controllers
 {
@@ -16,27 +17,28 @@ namespace EmployeeBenefitPackageCalc.Controllers
     public class EmployeeController : Controller
     {
         private AppDbContext _context;
+        private EmployeeService _employeeService;
 
-        public EmployeeController(AppDbContext context)
+        public EmployeeController(AppDbContext context, EmployeeService employeeService)
         {
             _context = context;
+            _employeeService = employeeService;
         }
 
         // GET: api/Employee
         [HttpGet]
         public JsonResult Get()
         {
-            // var result = _employeeService.GetAllEmployees();
-            var getAllEmployees = _context.Employee.ToList();
-            // return getAllEmployees;
-            return new JsonResult(getAllEmployees);
+            var result = _employeeService.GetAllEmployees();
+            return new JsonResult(result);
         }
 
         // GET: api/Employee/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public EmployeeDTO Get(int id)
         {
-            return "value";
+            var result = _employeeService.GetSingleEmployeeWithDependents(id);
+            return result;
         }
 
         // POST: api/Employee
@@ -55,6 +57,14 @@ namespace EmployeeBenefitPackageCalc.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+
+        // GET: api/employee/dependents
+        [HttpGet("dependents", Name = "GetAll")]
+        public JsonResult GetAll()
+        {
+            var getEveryone = _employeeService.GetAllEmployeesAndTheirDependents();
+            return new JsonResult(getEveryone);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace EmployeeBenefitPackageCalc.Data
         }
 
         public DbSet<Employee> Employee { get; set; }
-        public DbSet<Dependant> Dependant { get; set; }
+        public DbSet<Dependent> Dependant { get; set; }
         public DbSet<Settings> Settings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -29,6 +29,24 @@ namespace EmployeeBenefitPackageCalc.Data
     protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Employee>(entity =>
+            {
+                entity.Property(e => e.FirstName).IsRequired();
+                entity.Property(e => e.LastName).IsRequired();
+            });
+
+            modelBuilder.Entity<Employee>(entity =>
+            {
+                entity.HasMany(p => p.Dependents);
+            });
+
+            //modelBuilder.Entity<Dependent>(entity =>
+            //{
+            //    entity.HasOne(d => d.Employee)
+            //        .WithMany(p => p.dependents)
+            //        .HasForeignKey("employeeId");
+            //});
 
             //modelBuilder.ApplyConfiguration(new SettingsConfiguration());
             //modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
