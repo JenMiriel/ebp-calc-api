@@ -27,8 +27,8 @@ namespace EmployeeBenefitPackageCalc.src.Controllers
         }
 
         // GET: api/dependent/5
-        [HttpGet("{id}", Name = "Get")]
-        public DependentDTO Get(int id)
+        [HttpGet("{id}", Name = "GetDependent")]
+        public DependentDTO GetOneDependent(int id)
         {
             var result = _dependentService.GetSingleDependent(id);
             return result;
@@ -36,21 +36,21 @@ namespace EmployeeBenefitPackageCalc.src.Controllers
 
         // POST: api/dependent
         [HttpPost]
-        public async Task PostAsync([FromBody] DependentDTO value)
+        public async Task AddNewDependent([FromBody] DependentDTO value)
         {
             await _dependentService.AddNewDependentAsync(value);
         }
 
         // PUT: api/dependent/5
-        [HttpPut("{id}")]
-        public async Task PutAsync(int id, [FromBody] DependentDTO value)
+        [HttpPut("{id}", Name = "UpdateDependent")]
+        public async Task UpdateExistingDependent(int id, [FromBody] DependentDTO value)
         {
             await _dependentService.UpdateDependent(value.id, value);
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{id}", Name = "DeleteDependent")]
+        public void DeleteDependent(int id)
         {
             _dependentService.DeleteDependent(id);
         }
