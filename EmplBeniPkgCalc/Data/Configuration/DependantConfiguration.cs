@@ -12,7 +12,7 @@ namespace EmployeeBenefitPackageCalc.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<Dependent> builder)
         {
-            builder.ToTable("Dependent");
+            builder.ToTable("Dependant");
             builder.HasData(
                 new Dependent
                 {

@@ -27,15 +27,15 @@ namespace EmployeeBenefitPackageCalc.Controllers
 
         // GET: api/Employee
         [HttpGet]
-        public JsonResult Get()
+        public JsonResult GetAllEmployees()
         {
             var result = _employeeService.GetAllEmployees();
             return new JsonResult(result);
         }
 
         // GET: api/Employee/5
-        [HttpGet("{id}", Name = "Get")]
-        public EmployeeDTO Get(int id)
+        [HttpGet("{id}", Name = "GetEmployee")]
+        public EmployeeDTO GetOneEmployee(int id)
         {
             var result = _employeeService.GetSingleEmployeeWithDependents(id);
             return result;
@@ -43,25 +43,28 @@ namespace EmployeeBenefitPackageCalc.Controllers
 
         // POST: api/Employee
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task AddNewEmployee([FromBody] EmployeeDTO value)
         {
+            await _employeeService.AddNewEmployeeAsync(value);
         }
 
         // PUT: api/Employee/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task UpdateEmployee(int id, [FromBody] EmployeeDTO value)
         {
+            await _employeeService.UpdateEmployee(value.id, value);
         }
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE: api/Employee/delete/5
+        [HttpDelete("delete/{id}")]
+        public void DeleteEmployee(int id)
         {
+            _employeeService.DeleteEmployee(id);
         }
 
         // GET: api/employee/dependents
         [HttpGet("dependents", Name = "GetAll")]
-        public JsonResult GetAll()
+        public JsonResult GetAllEmployeesAndDependents()
         {
             var getEveryone = _employeeService.GetAllEmployeesAndTheirDependents();
             return new JsonResult(getEveryone);
